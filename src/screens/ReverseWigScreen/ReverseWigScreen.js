@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, SafeAreaView, TextInput, Button, Text } from 'react-native';
 import Touchable from 'react-native-platform-touchable';
 import { calculateCoords } from './reverseWigCalculator';
+import styles from './reverseWigScreen.less';
 
 export class ReverseWigScreen extends Component {
   constructor(props) {
@@ -45,10 +46,15 @@ export class ReverseWigScreen extends Component {
 
   calculate() {
     const { firstCode, secondCode, thirdCode } = this.state;
-    calculateCoords(firstCode, secondCode, thirdCode);
+    const [latCoord, longCoord ] = calculateCoords(firstCode, secondCode, thirdCode);
+    this.setState({
+      latCoord,
+      longCoord,
+    })
   }
 
   render() {
+    const {latCoord, longCoord} = this.state;
     return (
       <SafeAreaView
         style={{
@@ -63,7 +69,6 @@ export class ReverseWigScreen extends Component {
           <View
             style={{
               height: 56,
-              backgroundColor: 'red',
               flexDirection: 'row',
               alignItems: 'center',
             }}
@@ -74,40 +79,46 @@ export class ReverseWigScreen extends Component {
             />
           </View>
           <View
-            style={{
-              padding: 16,
-            }}
+            style={styles.reverse_container}
           >
             <TextInput
               maxLength={6}
               autoCorrect={false}
-              style={{
-                backgroundColor: 'white',
-                borderWidth: 1,
-              }}
+              style={styles.text_input}
               onChangeText={this.textChange.bind(this, 1)}
             />
             <TextInput
               maxLength={6}
               autoCorrect={false}
-              style={{
-                backgroundColor: 'white',
-                borderWidth: 1,
-              }}
+              style={styles.text_input}
               onChangeText={this.textChange.bind(this, 2)}
             />
             <TextInput
               maxLength={6}
               autoCorrect={false}
-              style={{
-                backgroundColor: 'white',
-                borderWidth: 1,
-              }}
+              style={styles.text_input}
               onChangeText={this.textChange.bind(this, 3)}
             />
-            <Touchable onPress={this.calculate} >
-            <Text>asdf</Text>
+            <Touchable
+              onPress={this.calculate}
+              style={styles.calculate_button}
+            >
+              <Text
+                style={styles.calculate_text}
+              >
+                Calculate
+              </Text>
             </Touchable>
+            <Text
+              style={styles.coordinate_text}
+            >
+              {latCoord}
+            </Text>
+            <Text
+              style={styles.coordinate_text}
+            >
+              {longCoord}
+            </Text>
           </View>
         </View>
       </SafeAreaView>
