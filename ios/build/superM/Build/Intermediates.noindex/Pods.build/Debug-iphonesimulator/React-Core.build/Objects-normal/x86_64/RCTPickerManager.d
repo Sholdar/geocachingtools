@@ -1,0 +1,30 @@
+dependencies: \
+  /Users/mfangstrom/Documents/dev/geocachingtools/node_modules/react-native/React/Views/RCTPickerManager.m \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Target\ Support\ Files/React-Core/React-Core-prefix.pch \
+  /Users/mfangstrom/Documents/dev/geocachingtools/node_modules/react-native/React/Views/RCTPickerManager.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTViewManager.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTBridgeModule.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTDefines.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTConvert.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTAnimationType.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTBorderStyle.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTLog.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTAssert.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTUtils.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTPointerEvents.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTTextDecorationLineType.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/yoga/Yoga.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/yoga/YGEnums.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/yoga/YGMacros.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/yoga/YGValue.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTEventDispatcher.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTBridge.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTBridgeDelegate.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTJavaScriptLoader.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTFrameUpdate.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTInvalidating.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/UIView+React.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/ios/Pods/Headers/Private/React-Core/React/RCTComponent.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/node_modules/react-native/React/Views/RCTPicker.h \
+  /Users/mfangstrom/Documents/dev/geocachingtools/node_modules/react-native/React/Views/RCTFont.h
