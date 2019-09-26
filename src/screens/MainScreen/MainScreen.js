@@ -9,9 +9,9 @@ export class MainScreen extends Component {
     this.navigate = this.navigate.bind(this);
   }
 
-  navigate() {
+  navigate(path, param = {}) {
     const { navigation } = this.props;
-    navigation.navigate('reverseWigScreen');
+    navigation.navigate(path, param);
   }
 
   render() {
@@ -28,7 +28,7 @@ export class MainScreen extends Component {
           }}
         >
           <Touchable
-            onPress={this.navigate}
+            onPress={this.navigate.bind(this, 'reverseWigScreen')}
           >
             <View
               style={{
@@ -36,6 +36,18 @@ export class MainScreen extends Component {
                 height: 30,
                 margin: 18,
                 backgroundColor: 'green',
+              }}
+            />
+          </Touchable>
+          <Touchable
+            onPress={this.navigate.bind(this, 'testScreen')}
+          >
+            <View
+              style={{
+                width: 30,
+                height: 30,
+                margin: 18,
+                backgroundColor: 'blue',
               }}
             />
           </Touchable>
