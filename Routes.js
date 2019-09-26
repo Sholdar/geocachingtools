@@ -1,6 +1,7 @@
 import { createStackNavigator } from 'react-navigation';
 import { MainScreen } from './src/screens/MainScreen/MainScreen';
 import { ReverseWigScreen } from './src/screens/ReverseWigScreen/ReverseWigScreen';
+import { TestScreen } from './src/screens/TestScreen/TestScreen';
 
 export const MainNavigator = createStackNavigator({
   App: createStackNavigator({
@@ -12,6 +13,13 @@ export const MainNavigator = createStackNavigator({
         header: null,
       }
     }),
+    testStack: createStackNavigator({
+      testScreen: TestScreen,
+    }, {
+      defaultNavigationOptions: {
+        header: null,
+      }
+    })
   }, {
     defaultNavigationOptions: {
       header: null,

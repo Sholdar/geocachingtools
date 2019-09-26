@@ -23,7 +23,6 @@ export class ReverseWigScreen extends Component {
   }
 
   textChange(index, text) {
-    console.log(text, index)
     switch (index) {
       case 1:
         this.setState({
@@ -46,6 +45,9 @@ export class ReverseWigScreen extends Component {
 
   calculate() {
     const { firstCode, secondCode, thirdCode } = this.state;
+    if (firstCode.length !== 6 || secondCode.length !== 6 || thirdCode.length !== 6) {
+      return;
+    }
     const [latCoord, longCoord ] = calculateCoords(firstCode, secondCode, thirdCode);
     this.setState({
       latCoord,
@@ -73,28 +75,40 @@ export class ReverseWigScreen extends Component {
               alignItems: 'center',
             }}
           >
-            <Button
-              title="back"
-              onPress={this.goBack.bind(this)}
-            />
+            <Touchable
+              style={{
+                height: 36,
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: 56,
+              }}
+              onPress={this.goBack}
+            >
+              <Text>
+                Back
+              </Text>
+            </Touchable>
           </View>
           <View
             style={styles.reverse_container}
           >
             <TextInput
               maxLength={6}
+              keyboardType="phone-pad"
               autoCorrect={false}
               style={styles.text_input}
               onChangeText={this.textChange.bind(this, 1)}
             />
             <TextInput
               maxLength={6}
+              keyboardType="phone-pad"
               autoCorrect={false}
               style={styles.text_input}
               onChangeText={this.textChange.bind(this, 2)}
             />
             <TextInput
               maxLength={6}
+              keyboardType="phone-pad"
               autoCorrect={false}
               style={styles.text_input}
               onChangeText={this.textChange.bind(this, 3)}
