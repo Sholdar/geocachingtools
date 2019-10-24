@@ -4,6 +4,18 @@ import Touchable from 'react-native-platform-touchable';
 import { calculateCoords } from './reverseWigCalculator';
 import styles from './reverseWigScreen.less';
 
+const fields = [
+  {
+    code: 'firstCode',
+  },
+  {
+    code: 'secondCode',
+  },
+  {
+    code: 'thirdCode',
+  },
+];
+
 export class ReverseWigScreen extends Component {
   constructor(props) {
     super(props);
@@ -23,65 +35,41 @@ export class ReverseWigScreen extends Component {
   }
 
   textChange(index, text) {
-    switch (index) {
-      case 1:
-        this.setState({
-          firstCode: text,
-        });
-        break;
-      case 2:
-        this.setState({
-          secondCode: text,
-        });
-        break;
-      case 3:
-        this.setState({
-          thirdCode: text,
-        });
-        break;
-      default:
-    }
+    this.setState({
+      [fields[index].code]: text,
+    })
   }
 
   calculate() {
     const { firstCode, secondCode, thirdCode } = this.state;
-    if (firstCode.length !== 6 || secondCode.length !== 6 || thirdCode.length !== 6) {
-      return;
+
+    for(let i = 0; i < fields.length; i += 1) {
+      const field = fields[i];
+      if (this.state[field.code].length !== 6) {
+        return;
+      }
     }
-    const [latCoord, longCoord ] = calculateCoords(firstCode, secondCode, thirdCode);
+
+    const coords = calculateCoords(firstCode, secondCode, thirdCode);
     this.setState({
-      latCoord,
-      longCoord,
+      coords,
     })
   }
 
   render() {
-    const {latCoord, longCoord} = this.state;
+    const {coords} = this.state;
     return (
       <SafeAreaView
-        style={{
-          flex: 1,
-        }}
+        style={styles.flex_fill}
       >
         <View
-          style={{
-            flex: 1,
-          }}
+          style={styles.flex_fill}
         >
           <View
-            style={{
-              height: 56,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}
+            style={styles.header}
           >
             <Touchable
-              style={{
-                height: 36,
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: 56,
-              }}
+              style={styles.header_back_button}
               onPress={this.goBack}
             >
               <Text>
@@ -92,27 +80,20 @@ export class ReverseWigScreen extends Component {
           <View
             style={styles.reverse_container}
           >
-            <TextInput
-              maxLength={6}
-              keyboardType="phone-pad"
-              autoCorrect={false}
-              style={styles.text_input}
-              onChangeText={this.textChange.bind(this, 1)}
-            />
-            <TextInput
-              maxLength={6}
-              keyboardType="phone-pad"
-              autoCorrect={false}
-              style={styles.text_input}
-              onChangeText={this.textChange.bind(this, 2)}
-            />
-            <TextInput
-              maxLength={6}
-              keyboardType="phone-pad"
-              autoCorrect={false}
-              style={styles.text_input}
-              onChangeText={this.textChange.bind(this, 3)}
-            />
+            {
+              fields.map((field, index) => {
+                return (
+                  <TextInput
+                    key={index}
+                    maxLength={6}
+                    keyboardType="phone-pad"
+                    autoCorrect={false}
+                    style={styles.text_input}
+                    onChangeText={this.textChange.bind(this, index)}
+                  />
+                )
+              })
+            }
             <Touchable
               onPress={this.calculate}
               style={styles.calculate_button}
@@ -123,16 +104,16 @@ export class ReverseWigScreen extends Component {
                 Calculate
               </Text>
             </Touchable>
-            <Text
-              style={styles.coordinate_text}
-            >
-              {latCoord}
-            </Text>
-            <Text
-              style={styles.coordinate_text}
-            >
-              {longCoord}
-            </Text>
+            {coords && coords.map((coord, index) => {
+              return(
+                <Text
+                  key={index}
+                  style={styles.coordinate_text}
+                >
+                  {coord}
+                </Text>
+              )
+            })}
           </View>
         </View>
       </SafeAreaView>
